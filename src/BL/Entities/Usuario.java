@@ -15,7 +15,7 @@ public class Usuario {
         return vvUsuario;
     }
 
-    public void vvGetUsuario(String vvUsuario) {
+    public void vvSetUsuario(String vvUsuario) {
         this.vvUsuario = vvUsuario;
     }
 
