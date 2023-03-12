@@ -1,5 +1,9 @@
 package BL;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class EncriptBL {
     public static void main(String[] args) {
         String password = "secreto";
@@ -8,7 +12,7 @@ public class EncriptBL {
         System.out.println("Contraseña encriptada: " + encryptPassword);
     }
     
-    public static String ccEncriptarContrasena(String input) {
+    public static String vvEncriptarContrasena(String input) {
         String md5 = null;
         if (null == input)
         return null;
@@ -23,5 +27,8 @@ public class EncriptBL {
             printStackTrace();
         }
         return md5;
+    }
+
+    private static void printStackTrace() {
     }
 }

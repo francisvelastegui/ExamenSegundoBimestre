@@ -1,5 +1,8 @@
 package BL;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import BL.Entities.Usuario;
@@ -7,7 +10,7 @@ import BL.Entities.Usuario;
 public class UsuarioBL {
     public Usuario vvGetUsuarioBL(String usuario, String contrasena) throws SQLException{
         try {
-            UsuarioDAC vvGetUsuario = new UsuarioDAC();
+            UsuarioDac vvGetUsuario = new UsuarioDac();
             ResultSet vvRs = vvUsuarioDac.vvGetUsuarioBL(usuario, contrasena);
 
             Usuario vvUsuario = new Usuario(
@@ -28,10 +31,10 @@ public class UsuarioBL {
     public static String vvEncriptContrasena(String vvInput){
         public static void main(String[] args) {
             String password = "secreto";
-            String encryptPassword = vvEncriptarContrasena(password);
+            String encryptPassword = vvEncriptContrasena(password);
             System.out.println("Contraseña original: " + password);
             System.out.println("Contraseña encriptada: " + encryptPassword);
-        }
+        
         
         public static String ccEncriptContrasena(String vvInput) {
             String md5 = null;
@@ -41,7 +44,7 @@ public class UsuarioBL {
                 // Create MessageDigest object for MD5           
                 MessageDigest digest = MessageDigest.getInstance("MD5");
                 // Update input string in message digest            
-                digest.update(input.getBytes(), 0, input.length());
+                digest.update(vvInput.getBytes(), 0, vvInput.length());
                 // Converts message digest value in base 16 (hex)            
                 md5 = new BigInteger(1, digest.digest()).toString(16);
             } catch (NoSuchAlgorithmException e) {

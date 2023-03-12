@@ -40,7 +40,7 @@ public class AppConfiguration {
             // String dbName = getDBName();
             // String dbPath = config.getProperty(APP.GLOBAL.DB_PATH);
             // dbPath = "jdbc:sqlite:" + dbPath.replace('/', '\\') + "\\\\" + dbName;
-            String dbPath = "jdbc:sqlite:data\\Localidad.db";
+            String dbPath = "jdbc:sqlite:data\\VV_COORDENADAS.DB";
             return dbPath;
         } else
             System.out.println(
