@@ -8,13 +8,13 @@ import BL.Entities.Usuario;
 
 /**
  *
- * @author User
+ * @author villarrealvelasteguí
  */
 public class UsuarioDac {
     private SQLiteDataHelper conexion = new SQLiteDataHelper();
     
 
-    public boolean vvAutenticarUsuario(Usuario vvUsuario) {
+    public boolean vvAutenticarUsuario(Usuario Usuario) {
         String sql = "SELECT * FROM usuarios WHERE VVUSUARIO = ? AND VVCONTRASENA = ?";
         try (Connection conn = conexion.getCn();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
