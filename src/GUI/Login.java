@@ -24,14 +24,11 @@ public class Login extends javax.swing.JFrame {
    
     private void initComponents() {
 
-        panelFondoLogin = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        panelFondoLogin.setBackground(new java.awt.Color(0, 0, 0));
 
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,33 +45,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panelFondoLoginLayout = new javax.swing.GroupLayout(panelFondoLogin);
-        panelFondoLogin.setLayout(panelFondoLoginLayout);
-        panelFondoLoginLayout.setHorizontalGroup(
-            panelFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFondoLoginLayout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addGroup(panelFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(txtUser))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLoginLayout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(234, 234, 234))
-        );
-        panelFondoLoginLayout.setVerticalGroup(
-            panelFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFondoLoginLayout.createSequentialGroup()
-                .addGap(311, 311, 311)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,27 +58,20 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
     private int syIntentos = 0;
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
        
     }//GEN-LAST:event_txtUserActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-       
-        
-        
-        
-
-
-        
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed    
 
         String syUsername = txtUser.getText();    
         // Obtener la contraseña ingresada por el usuario
     String contrasena = txtPassword.getText();
     
     // Encriptar la contraseña ingresada por el usuario
-    String contrasenaEncriptada = EncriptDAC.syEncriptarContrasena(contrasena);
+    String contrasenaEncriptada = EncriptDac.vvEncriptContrasena(contrasena);
     
     // Verificar si el usuario y la contraseña son válidos
     UsuarioDac vvUsuario = new vvUsuarios();
