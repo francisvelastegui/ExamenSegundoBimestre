@@ -28,4 +28,9 @@ public class UsuarioDac {
             return false;
         }
     }
+
+
+    public boolean vvVerificar(Usuario vvUsuario) {
+        return false;
+    }
 }

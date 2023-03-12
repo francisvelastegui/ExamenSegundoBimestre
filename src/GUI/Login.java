@@ -25,11 +25,14 @@ public class Login extends javax.swing.JFrame {
    
     private void initComponents() {
 
+        panelFondoLogin = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelFondoLogin.setBackground(new java.awt.Color(0, 0, 0));
 
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +49,44 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout panelFondoLoginLayout = new javax.swing.GroupLayout(panelFondoLogin);
+        panelFondoLogin.setLayout(panelFondoLoginLayout);
+        panelFondoLoginLayout.setHorizontalGroup(
+            panelFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFondoLoginLayout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addGroup(panelFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addComponent(txtUser))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLoginLayout.createSequentialGroup()
+                .addContainerGap(228, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(234, 234, 234))
+        );
+        panelFondoLoginLayout.setVerticalGroup(
+            panelFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFondoLoginLayout.createSequentialGroup()
+                .addGap(311, 311, 311)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jButton1)
+                .addContainerGap(223, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelFondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelFondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -58,15 +99,15 @@ public class Login extends javax.swing.JFrame {
 
         String vvUsername = txtUser.getText();    
         // Obtener la contraseña ingresada por el usuario
-    String contrasena = txtPassword.getText();
+    String vvContrasena = txtPassword.getText();
     
     // Encriptar la contraseña ingresada por el usuario
-    String contrasenaEncriptada = EncriptDac.vvEncriptContrasena(contrasena);
+    String vvContrasenaEncript = EncriptDac.vvEncriptContrasena(vvContrasena);
     
     // Verificar si el usuario y la contraseña son válidos
-    UsuarioDac vvUsuario = new UsuarioDac();
-    Usuario.vvSetUsuario(txtUser.getText());
-    Usuario.vvSetContrasena();
+    Usuario vvUsuario = new Usuario();
+    vvUsuario.vvSetUsuario(txtUser.getText());
+    vvUsuario.vvSetContrasena(vvContrasenaEncript);
     UsuarioDac usuariosDac = new UsuarioDac();
     
 
@@ -123,6 +164,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JPanel panelFondoLogin;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

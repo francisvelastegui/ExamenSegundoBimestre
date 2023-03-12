@@ -11,6 +11,9 @@ public class Usuario {
         this.vvNombre = vvNombre;
     }
 
+    public Usuario() {
+    }
+
     public String vvGetUsuario() {
         return vvUsuario;
     }
