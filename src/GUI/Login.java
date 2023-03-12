@@ -1,7 +1,8 @@
 package GUI;
 
 import javax.swing.JOptionPane;
-import BL.EncriptBL;
+
+import DAC.EncriptDac;
 import DAC.UsuarioDac;
 
 /**

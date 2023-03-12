@@ -6,6 +6,12 @@ package Framework;
  */
 public enum APP {
     GLOBAL;
+    public final  String  VVNOMBRE1 = "Francis Belén Velasteguí Armas";
+    public final  String  VVCEDULA1 = "1754644415";
+
+    public final  String  VVNOMBRE2 = "Carlos Alexander Villarreal Cuenca";
+    public final  String  VVCEDULA2 = "1752817799";
+
     public final  String  DB_NAME           = "DB_NAME";
     public final  String  DB_PATH           = "DB_PATH";  
     //Constantes con definicion  
