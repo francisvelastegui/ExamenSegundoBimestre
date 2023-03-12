@@ -1,8 +1,7 @@
 package GUI;
 
 import javax.swing.JOptionPane;
-import BL.Usuarios;
-import DAC.EncriptDAC;
+import BL.EncriptBL;
 import DAC.UsuarioDac;
 
 /**
@@ -15,7 +14,7 @@ public class Login extends javax.swing.JFrame {
     public static final String vvNombre2="Carlos Alexander Villarreal Cuenca";
     public static final String vvCedula2="1752817799";
 
-    UsuariosDac vvUsuariosDAC=new UsuarioDac();
+    UsuarioDac vvUsuariosDAC = new UsuarioDac();
    
     public Login() {
         initComponents();
@@ -111,21 +110,21 @@ public class Login extends javax.swing.JFrame {
     String contrasenaEncriptada = EncriptDAC.syEncriptarContrasena(contrasena);
     
     // Verificar si el usuario y la contraseña son válidos
-    Usuarios syUsuario = new vvUsuarios();
-    syUsuario.setSyUsuario(txtUser.getText());
-    syUsuario.setSyContrasenia(contrasenaEncriptada);
-    UsuariosDac usuariosDAC = new UsuariosDac();
+    UsuarioDac vvUsuario = new vvUsuarios();
+    vvUsuario.vvSetUsuario(txtUser.getText());
+    vvUsuario.vvSetContrasena(contrasenaEncriptada);
+    UsuarioDac usuariosDAC = new UsuariosDac();
     
 
-    if (usuariosDAC.syAutenticarUsuario(syUsuario)) {
-            JOptionPane.showMessageDialog(this, "Bienvenido, " + syUsername + "!");
-            FrmCoordenadas frmCoordenadas = new FrmCoordenadas();
+    if (usuariosDAC.vvAutenticarUsuario(vvUsuario)) {
+            JOptionPane.showMessageDialog(this, "Bienvenido, " + vvUsername + "!");
+            Coordenadas frmCoordenadas = new Coordenadas();
             frmCoordenadas.setVisible(true);
             this.setVisible(false);
         } else {
             syIntentos++;
             if (syIntentos < 3) {
-                JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrectos!  Numero de intento: "+syIntentos+" de 3", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrectos!  Numero de intento: "+vvIntentos+" de 3", "Error", JOptionPane.ERROR_MESSAGE);
              
             } else {
                 JOptionPane.showMessageDialog(this, "Ha excedido el número máximo de intentos. El programa se cerrará.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -150,20 +149,20 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmLogin().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
